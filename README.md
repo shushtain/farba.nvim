@@ -5,6 +5,9 @@ One theme to have them all.
 > "фарба" is a Ukrainian word for paint.  
 > Has to be of German origin, right?
 
+![Default Dark](default-dark.png)
+![Default Light](default-light.png)
+
 ## Features
 
 - By default, it's just a standard theme (see screenshots).
@@ -173,14 +176,15 @@ require("farba").setup({
 
 ## Issues
 
-- The theme is fresh, and some highlights may not be set in a smart way. Expect future changes with stable overall vibe.
+The theme is fresh, and some highlights may not be set in a smart way. Expect future changes with stable overall vibe.
+
 - There is no transparency for now. Have never used it to care to learn to implement it, but we could.
 - Plugin support, for now, often relies on sensible fallbacks.
 
 ### Floating windows
 
 - Since many plugins treat floating windows differently, it is almost impossible to define a universal rule.
-- Since you are more likely to see documentation floats, and, by default, they don't have a border, they are given a separate, lighter background.
+- Since you are more likely to see documentation floats, and, by default, they don't have a border, floats are given a separate, lighter background.
 - Plugins like Telescope and Which-key come with borders for some modes that looks better with no background change. These are adjusted.
 
 ### Light mode
