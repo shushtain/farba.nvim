@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup(palette)
 	-- default
-	vim.g.terminal_color_0 = palette.terminal.gray.v20
+	vim.g.terminal_color_0 = palette.terminal.gray.v10
 	vim.g.terminal_color_1 = palette.terminal.red.v55
 	vim.g.terminal_color_2 = palette.terminal.green.v60
 	vim.g.terminal_color_3 = palette.terminal.yellow.v75
@@ -11,7 +11,7 @@ function M.setup(palette)
 	vim.g.terminal_color_6 = palette.terminal.cyan.v70
 	vim.g.terminal_color_7 = palette.terminal.gray.v80
 	-- bright
-	vim.g.terminal_color_8 = palette.terminal.gray.v30
+	vim.g.terminal_color_8 = palette.terminal.gray.v40
 	vim.g.terminal_color_9 = palette.terminal.red.v65
 	vim.g.terminal_color_10 = palette.terminal.green.v70
 	vim.g.terminal_color_11 = palette.terminal.yellow.v85

@@ -86,7 +86,7 @@ function M.setup(palette)
 		DiffText = { bg = palette.status.yellow.v20 },
 
 		--[[ SELECTION ]]
-		Visual = { bg = palette.general.gray.v15 },
+		Visual = { bg = palette.general.gray.v20 },
 		VisualNOS = { bg = palette.general.gray.v15 },
 
 		--[[ SPELLING ]]

@@ -196,7 +196,7 @@ function M.setup(palette)
 		["@error"] = { link = "Error" },
 
 		["@lsp.type.class"] = { link = "@type.definition" },
-		["@lsp.type.comment"] = { link = "@comment" },
+		-- ["@lsp.type.comment"] = { link = "@comment" },
 		["@lsp.type.decorator"] = { link = "@attribute" },
 		["@lsp.type.enum"] = { link = "@type" },
 		["@lsp.type.enumMember"] = { link = "@constant" },
