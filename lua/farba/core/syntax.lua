@@ -98,7 +98,8 @@ function M.setup(palette)
 		["@label"] = { fg = palette.syntax.magenta.v70 },
 
 		["@string"] = { fg = palette.syntax.yellow.v70 },
-		["@string.documentation"] = { fg = palette.syntax.yellow.v60 },
+		-- ["@string.documentation"] = { fg = palette.syntax.yellow.v60 },
+		["@string.documentation"] = { link = "@comment.documentation" },
 		["@string.regexp"] = { fg = palette.syntax.yellow.v80 },
 		["@string.escape"] = { fg = palette.syntax.magenta.v60 },
 		["@string.special"] = { fg = palette.syntax.yellow.v70 },
@@ -196,7 +197,7 @@ function M.setup(palette)
 		["@error"] = { link = "Error" },
 
 		["@lsp.type.class"] = { link = "@type.definition" },
-		-- ["@lsp.type.comment"] = { link = "@comment" },
+		["@lsp.type.comment"] = { link = "@comment" },
 		["@lsp.type.decorator"] = { link = "@attribute" },
 		["@lsp.type.enum"] = { link = "@type" },
 		["@lsp.type.enumMember"] = { link = "@constant" },
@@ -223,9 +224,11 @@ function M.setup(palette)
 		["@lsp.type.typeParameter"] = { link = "@variable.parameter" },
 		["@lsp.type.variable"] = { link = "@variable" },
 		["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
-		["@lsp.type.formatSpecifier"] = { link = "@string.special" },
+		["@lsp.type.formatSpecifier"] = { link = "@string.escape" },
 		["@lsp.type.unresolvedReference"] = { link = "@error" },
+		["@lsp.mod.documentation"] = { link = "@comment.documentation" },
 		["@lsp.mod.deprecated"] = { strikethrough = true },
+		["@lsp.mod.mutable"] = { italic = true },
 
 		GlyphPalette0 = { fg = palette.general.gray.v30 },
 		GlyphPalette1 = { fg = palette.general.red.v60 },

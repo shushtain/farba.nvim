@@ -5,8 +5,77 @@ One theme to have them all.
 > "фарба" is a Ukrainian word for paint.  
 > Has to be of German origin, right?
 
-![Default Dark](default-dark.png)
-![Default Light](default-light.png)
+## Examples
+
+These are meant to inspire you to mix your own Farba. If you especially like one of them, use the provided color values. Read the [Setup](#setup) section for more details.
+
+### Jungle
+
+```lua
+{
+  gray    = {  90,   5 },
+  red     = {   0, 100 },
+  green   = {  20, 100 },
+  yellow  = {  70,  50 },
+  blue    = {  20,  75 },
+  magenta = {  90,  50 },
+  cyan    = {   0, 300 },
+}
+```
+
+![Jungle Dark](example-jungle-dark.png)
+![Jungle Light](example-jungle-light.png)
+
+### Dream
+
+```lua
+{
+  gray    = { 260,  25 },
+  red     = {   0, 100 },
+  green   = { 140,  50 },
+  yellow  = {  20,  75 },
+  blue    = { 220,  50 },
+  magenta = { 260,  50 },
+  cyan    = { 180,  50 },
+}
+```
+
+![Dream Dark](example-dream-dark.png)
+![Dream Light](example-dream-light.png)
+
+### Candy
+
+```lua
+{
+  gray    = {   0,   5 },
+  red     = {   0, 100 },
+  green   = { 340, 100 },
+  yellow  = { 170,  50 },
+  blue    = { 340,  75 },
+  magenta = { 340,  50 },
+  cyan    = { 340, 300 },
+}
+```
+
+![Candy Dark](example-candy-dark.png)
+![Candy Light](example-candy-light.png)
+
+### Default
+
+```lua
+{
+  gray    = {   0,   0 },
+  red     = {   0, 100 },
+  green   = { 120,  50 },
+  yellow  = {  40,  75 },
+  blue    = { 200,  50 },
+  magenta = { 280,  50 },
+  cyan    = { 150,  50 },
+}
+```
+
+![Default Dark](example-default-dark.png)
+![Default Light](example-default-light.png)
 
 ## Features
 
