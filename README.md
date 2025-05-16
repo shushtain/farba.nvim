@@ -11,6 +11,8 @@ These are meant to inspire you to mix your own Farba. If you especially like one
 
 ### Jungle
 
+![Jungle](example-jungle.png)
+
 ```lua
 {
   gray    = {  90,   5 },
@@ -23,10 +25,9 @@ These are meant to inspire you to mix your own Farba. If you especially like one
 }
 ```
 
-![Jungle Dark](example-jungle-dark.png)
-![Jungle Light](example-jungle-light.png)
-
 ### Dream
+
+![Dream](example-dream.png)
 
 ```lua
 {
@@ -40,10 +41,9 @@ These are meant to inspire you to mix your own Farba. If you especially like one
 }
 ```
 
-![Dream Dark](example-dream-dark.png)
-![Dream Light](example-dream-light.png)
-
 ### Candy
+
+![Candy](example-candy.png)
 
 ```lua
 {
@@ -57,10 +57,9 @@ These are meant to inspire you to mix your own Farba. If you especially like one
 }
 ```
 
-![Candy Dark](example-candy-dark.png)
-![Candy Light](example-candy-light.png)
-
 ### Default
+
+![Default](example-default.png)
 
 ```lua
 {
@@ -73,9 +72,6 @@ These are meant to inspire you to mix your own Farba. If you especially like one
   cyan    = { 150,  50 },
 }
 ```
-
-![Default Dark](example-default-dark.png)
-![Default Light](example-default-light.png)
 
 ## Features
 
