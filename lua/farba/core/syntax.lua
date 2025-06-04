@@ -131,6 +131,7 @@ function M.setup(palette)
 		["@function.method.call"] = { link = "@function" },
 
 		["@constructor"] = { link = "@function" },
+		["@constructor.lua"] = { link = "@punctuation.bracket" },
 		["@operator"] = { fg = palette.syntax.gray.v60 },
 
 		["@keyword"] = { fg = palette.syntax.magenta.v50 },
