@@ -61,7 +61,7 @@ function M.setup(palette)
 		EndOfBuffer = { link = "Whitespace" },
 
 		--[[ FLOATING WINDOWS ]]
-		NormalFloat = { bg = palette.general.gray.v20 },
+		NormalFloat = { link = "Normal" },
 		FloatBorder = { fg = palette.general.gray.v40, bg = palette.general.gray.v10 },
 		FloatTitle = { link = "Title" },
 		FloatFooter = { fg = palette.general.gray.v60 },
