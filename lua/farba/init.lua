@@ -31,6 +31,7 @@ function M.colorscheme()
 	end
 end
 
+---@param options Config User config.
 function M.setup(options)
 	config.__setup(options)
 end

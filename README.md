@@ -80,12 +80,12 @@ These are meant to inspire you to mix your own Farba. If you especially like one
 - You can change hue and saturation for different highlight groups:
   - General (this is primarily about UI/editor).
   - Status (errors, warnings, successes, diffs).
-  - Syntax (native, Tree-sitter and LSP highlights).
+  - Syntax (native, treesitter and LSP highlights).
   - Terminal (have separate terminal colors if you want).
 
-## How does it work?
+## How it works?
 
-- Provided hue/saturation pairs are converted to ranges of HEX swatches.
+- Provided hue/saturation pairs are converted to the ranges of HEX swatches.
 - Conversion is similar to HSL -> HEX, but actually uses Cubehelix, so:
   - Color contrast is the same, no matter you prefer blue or yellow themes.
   - To achieve that, saturation of 100% is actually less than in HSL.
@@ -118,6 +118,7 @@ These are meant to inspire you to mix your own Farba. If you especially like one
 ```lua
 require("farba").setup({
   light_mode = false,
+  background = true,
   colors = {
     general = {
       gray = { 0, 0 },
@@ -170,9 +171,11 @@ require("farba").setup({
   config = function()
     -- Here is my light theme.
     -- It's for presenting to people, so I will keep defaults.
+    -- I also don't need a separate background since my terminal matches, and since I often disable it for OBS layering.
     -- Dark yellow is ugly, so I want to use orange.
     local light = {
       light_mode = true,
+      background = false,
       colors = {
         general = {
           yellow = { 25, 75 },
@@ -241,16 +244,13 @@ require("farba").setup({
 
 ## Issues
 
-The theme is fresh, and some highlights may not be set in a smart way. Expect future changes with stable overall vibe.
-
-- There is no transparency for now. Have never used it to care to learn to implement it, but we could.
+- The theme is fresh, and some highlights may not be set in a smart way. Expect future changes with stable overall vibe.
 - Plugin support, for now, often relies on sensible fallbacks.
 
-### Floating windows
+### Floating windows and menus
 
-- Since many plugins treat floating windows differently, it is almost impossible to define a universal rule.
-- Since you are more likely to see documentation floats, and, by default, they don't have a border, floats are given a separate, lighter background.
-- Plugins like Telescope and Which-key come with borders for some modes that looks better with no background change. These are adjusted.
+- It is recommended to give floating windows some sort of border or backdrop, since they don't have a separate background. This is slowly becoming a standard since the most popular plugins (like Telescope, Which-key, Lazy, Mason, etc) expect no background change while often providing borders or backdrops.
+- Menus, like the ones you see for command line suggestions and overall completions, use a separate background, so you don't need a border for them. This saves space.
 
 ### Light mode
 

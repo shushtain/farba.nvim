@@ -4,6 +4,7 @@ local M = {}
 
 function M.setup()
 	local colors = config.options.colors
+	local background = config.options.background
 	local light_mode = config.options.light_mode
 	local palette = {}
 
@@ -41,6 +42,11 @@ function M.setup()
 		else
 			palette.syntax[key] = palette.general[key]
 		end
+	end
+
+	palette.background = true
+	if type(background) == "boolean" then
+		palette.background = background
 	end
 
 	return palette

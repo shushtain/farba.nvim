@@ -1,9 +1,10 @@
 local M = {}
 
 function M.setup(palette)
+	local background = palette.background and palette.general.gray.v10 or "NONE"
 	local groups = {
 		--[[ GENERAL ]]
-		Normal = { fg = palette.general.gray.v90, bg = palette.general.gray.v10 },
+		Normal = { fg = palette.general.gray.v90, bg = background },
 		NormalNC = { link = "Normal" }, -- non-current
 		WinSeparator = { fg = palette.general.gray.v05 },
 
@@ -62,7 +63,7 @@ function M.setup(palette)
 
 		--[[ FLOATING WINDOWS ]]
 		NormalFloat = { link = "Normal" },
-		FloatBorder = { fg = palette.general.gray.v40, bg = palette.general.gray.v10 },
+		FloatBorder = { fg = palette.general.gray.v40, bg = background },
 		FloatTitle = { link = "Title" },
 		FloatFooter = { fg = palette.general.gray.v60 },
 
