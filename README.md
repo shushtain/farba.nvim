@@ -173,6 +173,7 @@ require("farba").setup({
     -- It's for presenting to people, so I will keep defaults.
     -- I also don't need a separate background since my terminal matches, and since I often disable it for OBS layering.
     -- Dark yellow is ugly, so I want to use orange.
+    ---@type Farba.Config
     local light = {
       light_mode = true,
       background = false,
@@ -184,6 +185,7 @@ require("farba").setup({
     }
 
     -- Here is my dark theme.
+    ---@type Farba.Config
     local dark = {
       colors = {
         -- I don't want any UI colors distracting me.

@@ -31,7 +31,8 @@ function M.colorscheme()
   end
 end
 
----@param options Config User config.
+---Setup function for Farba
+---@param options Farba.Config|nil
 function M.setup(options)
   config.__setup(options)
 end
