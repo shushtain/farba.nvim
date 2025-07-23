@@ -107,7 +107,6 @@ function M.setup(palette)
     ["@label"] = { fg = palette.syntax.magenta.v70 },
 
     ["@string"] = { fg = palette.syntax.yellow.v70 },
-    -- ["@string.documentation"] = { fg = palette.syntax.yellow.v60 },
     ["@string.documentation"] = { link = "@comment.documentation" },
     ["@string.regexp"] = { fg = palette.syntax.yellow.v80 },
     ["@string.escape"] = { fg = palette.syntax.magenta.v60 },
@@ -174,7 +173,7 @@ function M.setup(palette)
     ["@comment.error"] = { fg = palette.status.red.v60 },
     ["@comment.warning"] = { fg = palette.status.yellow.v60 },
     ["@comment.todo"] = { fg = palette.general.cyan.v60, bold = true },
-    ["@comment.note"] = { fg = palette.general.blue.v50 },
+    ["@comment.note"] = { fg = palette.general.blue.v60 },
 
     ["@markup.strong"] = { bold = true },
     ["@markup.italic"] = { italic = true },
@@ -194,8 +193,8 @@ function M.setup(palette)
     ["@markup.raw.block"] = { fg = palette.syntax.gray.v70 },
 
     ["@markup.list"] = { fg = palette.syntax.blue.v60 },
-    ["@markup.list.checked"] = { fg = palette.syntax.cyan.v80 },
-    ["@markup.list.unchecked"] = { fg = palette.syntax.cyan.v60 },
+    ["@markup.list.checked"] = { fg = palette.syntax.blue.v80 },
+    ["@markup.list.unchecked"] = { fg = palette.syntax.blue.v60 },
 
     ["@diff.plus"] = { link = "Added" },
     ["@diff.minus"] = { link = "Removed" },
@@ -210,6 +209,7 @@ function M.setup(palette)
     ["@error"] = { link = "Error" },
 
     ["@lsp.type.class"] = { link = "@type.definition" },
+    ["@lsp.type.class.markdown"] = { link = "@markup.link" },
     ["@lsp.type.comment"] = { link = "@comment" },
     ["@lsp.type.decorator"] = { link = "@attribute" },
     ["@lsp.type.enum"] = { link = "@type" },
