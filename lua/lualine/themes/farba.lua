@@ -8,11 +8,11 @@ theme.normal = {
     gui = "bold",
   },
   b = {
-    fg = palette.general.gray.v80,
+    fg = palette.general.gray.v70,
     bg = palette.general.gray.v30,
   },
   c = {
-    fg = palette.general.gray.v80,
+    fg = palette.general.gray.v70,
     bg = palette.general.gray.v20,
   },
 }
@@ -24,11 +24,11 @@ theme.insert = {
     gui = "bold",
   },
   b = {
-    fg = palette.general.green.v80,
+    fg = palette.general.green.v70,
     bg = palette.general.green.v30,
   },
   c = {
-    fg = palette.general.green.v80,
+    fg = palette.general.green.v70,
     bg = palette.general.green.v20,
   },
 }
@@ -40,11 +40,11 @@ theme.visual = {
     gui = "bold",
   },
   b = {
-    fg = palette.general.blue.v80,
+    fg = palette.general.blue.v70,
     bg = palette.general.blue.v30,
   },
   c = {
-    fg = palette.general.blue.v80,
+    fg = palette.general.blue.v70,
     bg = palette.general.blue.v20,
   },
 }
@@ -56,11 +56,11 @@ theme.replace = {
     gui = "bold",
   },
   b = {
-    fg = palette.general.yellow.v80,
+    fg = palette.general.yellow.v70,
     bg = palette.general.yellow.v30,
   },
   c = {
-    fg = palette.general.yellow.v80,
+    fg = palette.general.yellow.v70,
     bg = palette.general.yellow.v20,
   },
 }
@@ -72,11 +72,11 @@ theme.command = {
     gui = "bold",
   },
   b = {
-    fg = palette.general.magenta.v80,
+    fg = palette.general.magenta.v70,
     bg = palette.general.magenta.v30,
   },
   c = {
-    fg = palette.general.magenta.v80,
+    fg = palette.general.magenta.v70,
     bg = palette.general.magenta.v20,
   },
 }
@@ -88,11 +88,11 @@ theme.terminal = {
     gui = "bold",
   },
   b = {
-    fg = palette.general.cyan.v80,
+    fg = palette.general.cyan.v70,
     bg = palette.general.cyan.v30,
   },
   c = {
-    fg = palette.general.cyan.v80,
+    fg = palette.general.cyan.v70,
     bg = palette.general.cyan.v20,
   },
 }
