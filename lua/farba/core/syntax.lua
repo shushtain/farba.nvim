@@ -122,7 +122,7 @@ function M.setup(palette)
     ["@character.special"] = { link = "@string.special" },
 
     ["@boolean"] = { fg = palette.syntax.yellow.v85 },
-    ["@number"] = { fg = palette.syntax.cyan.v90 },
+    ["@number"] = { fg = palette.syntax.yellow.v90 },
     ["@number.float"] = { link = "@number" },
 
     ["@type"] = { fg = palette.syntax.green.v70 },
