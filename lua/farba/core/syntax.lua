@@ -99,42 +99,42 @@ function M.setup(palette)
     ["@variable.member"] = { link = "@variable" },
 
     ["@constant"] = { fg = palette.syntax.blue.v60 },
-    ["@constant.builtin"] = { link = "@boolean" },
+    ["@constant.builtin"] = { fg = palette.syntax.blue.v60, bold = true },
     ["@constant.macro"] = { link = "@constant" },
 
     ["@module"] = { fg = palette.syntax.green.v80 },
-    ["@module.builtin"] = { link = "@module" },
+    ["@module.builtin"] = { fg = palette.syntax.green.v80, bold = true },
     ["@label"] = { fg = palette.syntax.magenta.v70 },
 
     ["@string"] = { fg = palette.syntax.yellow.v70 },
     ["@string.documentation"] = { link = "@comment.documentation" },
-    ["@string.regexp"] = { fg = palette.syntax.yellow.v80 },
+    ["@string.regexp"] = { fg = palette.syntax.cyan.v80 },
     ["@string.escape"] = { fg = palette.syntax.magenta.v60 },
-    ["@string.special"] = { fg = palette.syntax.yellow.v70 },
+    ["@string.special"] = { fg = palette.syntax.yellow.v80 },
     ["@string.special.symbol"] = { link = "@string.special" },
     ["@string.special.path"] = { link = "@string.special" },
     ["@string.special.url"] = {
-      fg = palette.syntax.yellow.v70,
+      fg = palette.syntax.yellow.v80,
       underline = true,
     },
 
     ["@character"] = { link = "@string" },
     ["@character.special"] = { link = "@string.special" },
 
-    ["@boolean"] = { fg = palette.syntax.yellow.v90 },
-    ["@number"] = { fg = palette.syntax.yellow.v90 },
+    ["@boolean"] = { fg = palette.syntax.yellow.v85 },
+    ["@number"] = { fg = palette.syntax.cyan.v90 },
     ["@number.float"] = { link = "@number" },
 
     ["@type"] = { fg = palette.syntax.green.v70 },
-    ["@type.builtin"] = { link = "@type" },
-    ["@type.definition"] = { fg = palette.syntax.green.v80 },
+    ["@type.builtin"] = { fg = palette.syntax.green.v70, bold = true },
+    ["@type.definition"] = { fg = palette.syntax.green.v70 },
 
     ["@attribute"] = { fg = palette.syntax.magenta.v70 },
-    ["@attribute.builtin"] = { link = "@attribute" },
+    ["@attribute.builtin"] = { fg = palette.syntax.magenta.v70, bold = true },
     ["@property"] = { link = "@variable" },
 
-    ["@function"] = { fg = palette.syntax.cyan.v90 },
-    ["@function.builtin"] = { link = "@function" },
+    ["@function"] = { fg = palette.syntax.cyan.v85 },
+    ["@function.builtin"] = { fg = palette.syntax.cyan.v85, bold = true },
     ["@function.call"] = { link = "@function" },
     ["@function.macro"] = { link = "@function" },
 
@@ -172,7 +172,7 @@ function M.setup(palette)
 
     ["@comment.error"] = { fg = palette.status.red.v60 },
     ["@comment.warning"] = { fg = palette.status.yellow.v60 },
-    ["@comment.todo"] = { fg = palette.general.cyan.v60, bold = true },
+    ["@comment.todo"] = { fg = palette.general.cyan.v60 },
     ["@comment.note"] = { fg = palette.general.blue.v60 },
 
     ["@markup.strong"] = { bold = true },
@@ -239,7 +239,8 @@ function M.setup(palette)
     ["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
     ["@lsp.type.formatSpecifier"] = { link = "@string.escape" },
     ["@lsp.type.unresolvedReference"] = { link = "@error" },
-    ["@lsp.mod.documentation"] = { link = "@comment.documentation" },
+
+    -- ["@lsp.mod.documentation"] = { link = "@comment.documentation" },
     ["@lsp.mod.deprecated"] = { strikethrough = true },
     ["@lsp.mod.mutable"] = { italic = true },
 

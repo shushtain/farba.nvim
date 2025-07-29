@@ -26,7 +26,7 @@ function M.setup(palette)
     LineNrAbove = { link = "LineNr" },
     LineNrBelow = { link = "LineNr" },
     SignColumn = { link = "LineNr" },
-    FoldColumn = { link = "SignColumn" }, -- test
+    FoldColumn = { link = "SignColumn" },
     CursorLineSign = { link = "CursorLineNr" },
     CursorLineFold = { link = "CursorLineNr" },
 
@@ -34,7 +34,7 @@ function M.setup(palette)
     Search = { bg = palette.general.yellow.v15 },
     CurSearch = { bg = palette.general.yellow.v20 },
     Substitute = { link = "Search" },
-    IncSearch = { link = "CurSearch" }, -- interactive mode
+    IncSearch = { link = "CurSearch" },
     MatchParen = { bg = palette.general.gray.v20 },
 
     --[[ COMPLETION ]]
@@ -48,7 +48,7 @@ function M.setup(palette)
     WarningMsg = { fg = palette.status.yellow.v70 },
     Question = { fg = palette.general.cyan.v70 },
     MoreMsg = { fg = palette.general.cyan.v70 },
-    MsgSeparator = { link = "StatusLine" }, -- test
+    MsgSeparator = { link = "Whitespace" },
 
     --[[ SPECIAL ]]
     QuickFixLine = { fg = palette.general.cyan.v70 },
@@ -110,12 +110,12 @@ function M.setup(palette)
     StatusLineTermNC = { link = "StatusLineNC" },
 
     --[[ TAB LINE ]]
-    TabLine = { fg = palette.general.gray.v60, bg = palette.general.gray.v05 },
+    TabLine = { fg = palette.general.gray.v40, bg = palette.general.gray.v05 },
     TabLineFill = { link = "TabLine" },
-    TabLineSel = { fg = palette.general.gray.v70, bold = true },
+    TabLineSel = { fg = palette.general.gray.v60 },
 
     --[[ WINDOW BAR ]]
-    WinBar = { fg = palette.general.gray.v60, bold = true, italic = true },
+    WinBar = { fg = palette.general.gray.v40, bold = true, italic = true },
     WinBarNC = { link = "WinBar" },
   }
 
