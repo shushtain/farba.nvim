@@ -3,7 +3,7 @@ local theme = {}
 
 theme.normal = {
   a = {
-    fg = palette.general.gray.v10,
+    fg = palette.general.gray.v20,
     bg = palette.general.gray.v60,
     gui = "bold",
   },
@@ -19,7 +19,7 @@ theme.normal = {
 
 theme.insert = {
   a = {
-    fg = palette.general.green.v10,
+    fg = palette.general.green.v20,
     bg = palette.general.green.v60,
     gui = "bold",
   },
@@ -35,7 +35,7 @@ theme.insert = {
 
 theme.visual = {
   a = {
-    fg = palette.general.blue.v10,
+    fg = palette.general.blue.v20,
     bg = palette.general.blue.v60,
     gui = "bold",
   },
@@ -51,7 +51,7 @@ theme.visual = {
 
 theme.replace = {
   a = {
-    fg = palette.general.yellow.v10,
+    fg = palette.general.yellow.v20,
     bg = palette.general.yellow.v60,
     gui = "bold",
   },
@@ -67,7 +67,7 @@ theme.replace = {
 
 theme.command = {
   a = {
-    fg = palette.general.magenta.v10,
+    fg = palette.general.magenta.v20,
     bg = palette.general.magenta.v60,
     gui = "bold",
   },
@@ -83,7 +83,7 @@ theme.command = {
 
 theme.terminal = {
   a = {
-    fg = palette.general.cyan.v10,
+    fg = palette.general.cyan.v20,
     bg = palette.general.cyan.v60,
     gui = "bold",
   },
