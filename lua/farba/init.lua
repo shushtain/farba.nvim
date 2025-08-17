@@ -1,20 +1,8 @@
-local config = require("farba.config")
-local palette = require("farba.palette")
-local utils = require("farba.utils")
-
 local M = {}
 
-local core = {
-  require("farba.core.terminal"),
-  require("farba.core.editor"),
-  require("farba.core.syntax"),
-}
-
-local plugins = {
-  require("farba.plugins.telescope"),
-  require("farba.plugins.gitsigns"),
-  require("farba.plugins.which-key"),
-}
+-- TODO:
+-- get({"domain", "color", lightness})
+-- palette as domain.color[lightness] with the latter numerical
 
 function M.colorscheme()
   vim.opt.termguicolors = true
@@ -22,10 +10,22 @@ function M.colorscheme()
   vim.cmd("syntax reset")
   vim.g.colors_name = "farba"
 
-  local pal = palette.setup()
+  local pal = require("farba.palette").setup()
+
+  local core = {
+    require("farba.core.terminal"),
+    require("farba.core.editor"),
+    require("farba.core.syntax"),
+  }
   for _, item in ipairs(core) do
     item.setup(pal)
   end
+
+  local plugins = {
+    require("farba.plugins.telescope"),
+    require("farba.plugins.gitsigns"),
+    require("farba.plugins.which-key"),
+  }
   for _, item in ipairs(plugins) do
     item.setup(pal)
   end
@@ -34,7 +34,7 @@ end
 ---Setup function for Farba
 ---@param options Farba.Config|nil
 function M.setup(options)
-  config.__setup(options)
+  require("farba.config").__setup(options)
 end
 
 return M
