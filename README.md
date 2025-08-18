@@ -65,10 +65,10 @@ These are meant to inspire you to mix your own Farba. If you especially like one
 {
   gray    = {   0,   0 },
   red     = {   0, 100 },
-  green   = { 120,  50 },
-  yellow  = {  40,  75 },
+  green   = {  90,  50 },
+  yellow  = {  30,  75 },
   blue    = { 200,  50 },
-  magenta = { 280,  50 },
+  magenta = { 300,  50 },
   cyan    = { 150,  50 },
 }
 ```
@@ -76,21 +76,12 @@ These are meant to inspire you to mix your own Farba. If you especially like one
 ## Features
 
 - By default, it's just a standard theme (see screenshots).
-- Colors are `cterm` inspired: gray, red, green, yellow, blue, magenta, cyan.
+- Colors are `cterm` aligned: gray, red, green, yellow, blue, magenta, cyan.
 - You can change hue and saturation for different highlight groups:
   - General (this is primarily about UI/editor).
   - Status (errors, warnings, successes, diffs).
   - Syntax (native, treesitter and LSP highlights).
   - Terminal (have separate terminal colors if you want).
-
-## How it works?
-
-- Provided hue/saturation pairs are converted to the ranges of HEX swatches.
-- Conversion is similar to HSL -> HEX, but actually uses Cubehelix, so:
-  - Color contrast is the same, no matter you prefer blue or yellow themes.
-  - To achieve that, saturation of 100% is actually less than in HSL.
-  - You have to set 500% saturation for some colors to get the maximum.
-  - Using more than 100% saturation may break color contrast consistency.
 
 ## Installation
 
@@ -102,7 +93,6 @@ These are meant to inspire you to mix your own Farba. If you especially like one
   lazy = false,
   priority = 1000,
   config = function()
-    require("farba").setup()
     vim.cmd("colorscheme farba")
   end,
 }
@@ -110,9 +100,13 @@ These are meant to inspire you to mix your own Farba. If you especially like one
 
 ## Setup
 
+Setup is optional and used only to change default config options. If the config table is outside of `setup()` function, use `---@type Farba.Config` to enable LSP help.
+
 ### Defaults
 
-- Colors are provides with `hue` (0-360) and `saturation` (0-100+) as `{ hue, sat }`.
+- Colors are defined as `{ hue, sat }`, where:
+  - `hue` 0-360
+  - `sat` 0-100+
 - `false` means the "general" version will be used.
 
 ```lua
@@ -158,11 +152,6 @@ require("farba").setup({
 
 ### Example
 
-- To set a color, provide it as `{ hue, sat }`.
-  - Invalid values for `general` become `{ 0, 0 }` (gray).
-  - Invalid values for other groups use `general`.
-- Omitted values use defaults.
-
 ```lua
 {
   "shushtain/farba.nvim",
@@ -170,27 +159,20 @@ require("farba").setup({
   priority = 1000,
   config = function()
     -- Here is my light theme.
-    -- It's for presenting to people, so I will keep defaults.
-    -- I also don't need a separate background since my terminal matches, and since I often disable it for OBS layering.
-    -- Dark yellow is ugly, so I want to use orange.
     ---@type Farba.Config
     local light = {
       light_mode = true,
       background = false,
-      colors = {
-        general = {
-          yellow = { 25, 75 },
-        },
-      },
+      colors = { general = { yellow = { 25, 75 } } },
     }
 
     -- Here is my dark theme.
     ---@type Farba.Config
     local dark = {
       colors = {
-        -- I don't want any UI colors distracting me.
+        -- Everything is grayscale.
         general = {
-          gray = false, -- since this is not valid, it's the same as { 0, 0 }
+          gray = false,
           red = false,
           green = false,
           yellow = false,
@@ -198,62 +180,60 @@ require("farba").setup({
           magenta = false,
           cyan = false,
         },
-        -- Max color for alerts!!!
+        -- Max color for alerts.
         status = {
-          red = { 0, 100 }, -- error, diff deleted
-          yellow = { 30, 100 }, -- warning, diff changed
-          green = { 120, 100 }, -- success, diff added
+          red = { 0, 100 },
+          yellow = { 30, 100 },
+          green = { 120, 100 },
         },
-        -- Not all terminal colors are useful to me.
+        -- Essential terminal colors.
         terminal = {
           red = { 0, 100 },
           green = { 120, 50 },
           yellow = { 30, 75 },
         },
-        -- Neither I nor my theme should be clownish.
-        -- Let's do something like Gruvbox or my flowerpot.
+        -- Gruvbox-like syntax.
         syntax = {
-          gray = { 25, 50 }, -- orange comments
-          red = { 0, 100 }, -- red errors
-          green = { 120, 50 }, -- green for my types and modules
-          yellow = { 40, 50 }, -- warm yellow for my literals
-          blue = { 90, 50 }, -- warm green for my vars and constants to protect eyes
-          magenta = { 120, 50 }, -- green for keywords
-          cyan = { 0, 50 }, -- red for functions, but not as bright
+          gray = { 25, 50 },
+          red = { 0, 100 },
+          green = { 120, 50 },
+          yellow = { 40, 50 },
+          blue = { 90, 50 },
+          magenta = { 120, 50 },
+          cyan = { 0, 50 },
         },
       },
     }
 
-   -- Here I detect OS theme.
-    local is_light_mode = function()
-      -- The actual implementation depends on the OS.
-    end
-
-    -- Here I automatically switch themes.
-    -- I could also track where I start Neovim from, for instance.
-    local scheme = function()
-      if is_light_mode then
-        return light
-      return dark
-      end
-    end
-
-    require("farba").setup(scheme)
+    require("farba").setup(dark)
     vim.cmd("colorscheme farba")
+    vim.g.is_theme_dark = true
+
+    vim.keymap.set("n", "<leader>th", function()
+      local theme = vim.g.is_theme_dark and light or dark
+      require("farba").setup(theme)
+      vim.cmd("colorscheme farba")
+      vim.g.is_theme_dark = not vim.g.is_theme_dark
+    end)
   end,
 }
 ```
 
-## Issues
+## Additional features
 
-- The theme is fresh, and some highlights may not be set in a smart way. Expect future changes with stable overall vibe.
-- Plugin support, for now, often relies on sensible fallbacks.
+If you want to make some additional plugin pretty or just need a color from the Farba palette somewhere else, get it from `vim.g.farba`. For example, `vim.g.farba.colors.general.gray.v25`. To see all available colors, call `:lua print(vim.inspect(vim.g.farba))`.
 
-### Floating windows and menus
+## How does it work?
 
-- It is recommended to give floating windows some sort of border or backdrop, since they don't have a separate background. This is slowly becoming a standard since the most popular plugins (like Telescope, Which-key, Lazy, Mason, etc) expect no background change while often providing borders or backdrops.
-- Menus, like the ones you see for command line suggestions and overall completions, use a separate background, so you don't need a border for them. This saves space.
+- Provided hue/saturation pairs are converted to the ranges of HEX swatches.
+- Conversion is similar to HSL -> HEX, but actually uses Cubehelix, so:
+  - Color contrast is the same, no matter you prefer blue or yellow themes.
+  - To achieve that, saturation of 100% is actually less than in HSL.
+  - You have to set 500% saturation for some colors to get the maximum.
+  - Using more than 100% saturation may break color contrast consistency.
 
-### Light mode
+## Credits
 
-- Light mode works by simply inverting lightness values, so there may be some untracked issues.
+- [Dave Green's Cubehelix](https://people.phy.cam.ac.uk/dag9/CUBEHELIX/#Paper)
+- [Base16](https://github.com/chriskempson/base16), for inspiring me.
+- Countless beautiful themes, for code examples and general approach.

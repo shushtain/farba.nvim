@@ -1,28 +1,27 @@
 local M = {}
 
-function M.setup(palette)
-  local background = palette.background and palette.general.gray.v10 or "NONE"
-  local groups = {
-    --[[ GENERAL ]]
-    Normal = { fg = palette.general.gray.v90, bg = background },
-    NormalNC = { link = "Normal" }, -- non-current
-    WinSeparator = { fg = palette.general.gray.v05 },
+function M.setup()
+  local colors = vim.g.farba.colors
 
-    --[[ CURSOR ]]
-    Cursor = { fg = palette.general.gray.v10, bg = palette.general.gray.v90 },
+  local background = vim.g.farba.background and colors.general.gray.v10
+    or "NONE"
+
+  local groups = {
+    Normal = { fg = colors.general.gray.v90, bg = background },
+    NormalNC = { link = "Normal" },
+    WinSeparator = { fg = colors.general.gray.v05 },
+
+    Cursor = { fg = colors.general.gray.v10, bg = colors.general.gray.v90 },
     TermCursor = { link = "Cursor" },
-    -- for IME languages
     lCursor = { link = "Cursor" },
     CursorIM = { link = "Cursor" },
 
-    --[[ GUIDES ]]
-    ColorColumn = { bg = palette.general.gray.v15 }, -- line length limit
-    CursorLine = { bg = palette.general.gray.v15 },
+    ColorColumn = { bg = colors.general.gray.v15 },
+    CursorLine = { bg = colors.general.gray.v15 },
     CursorColumn = { link = "CursorLine" },
 
-    --[[ GUTTER ]]
-    LineNr = { fg = palette.general.gray.v40 },
-    CursorLineNr = { fg = palette.general.gray.v60 },
+    LineNr = { fg = colors.general.gray.v40 },
+    CursorLineNr = { fg = colors.general.gray.v60 },
     LineNrAbove = { link = "LineNr" },
     LineNrBelow = { link = "LineNr" },
     SignColumn = { link = "LineNr" },
@@ -30,92 +29,80 @@ function M.setup(palette)
     CursorLineSign = { link = "CursorLineNr" },
     CursorLineFold = { link = "CursorLineNr" },
 
-    --[[ SEARCH ]]
-    Search = { bg = palette.general.yellow.v15 },
-    CurSearch = { bg = palette.general.yellow.v20 },
+    Search = { bg = colors.general.yellow.v15 },
+    CurSearch = { bg = colors.general.yellow.v20 },
     Substitute = { link = "Search" },
     IncSearch = { link = "CurSearch" },
-    MatchParen = { bg = palette.general.gray.v20 },
+    MatchParen = { bg = colors.general.gray.v20 },
 
-    --[[ COMPLETION ]]
-    ComplMatchIns = { fg = palette.general.gray.v40 },
-    SnippetTabstop = { bg = palette.general.gray.v20 },
+    ComplMatchIns = { fg = colors.general.gray.v40 },
+    SnippetTabstop = { bg = colors.general.gray.v20 },
 
-    --[[ MESSAGES ]]
-    MsgArea = { fg = palette.general.gray.v80 },
-    ModeMsg = { fg = palette.general.green.v70 },
-    ErrorMsg = { fg = palette.status.red.v70 },
-    WarningMsg = { fg = palette.status.yellow.v70 },
-    Question = { fg = palette.general.cyan.v70 },
-    MoreMsg = { fg = palette.general.cyan.v70 },
+    MsgArea = { fg = colors.general.gray.v80 },
+    ModeMsg = { fg = colors.general.green.v70 },
+    ErrorMsg = { fg = colors.status.red.v70 },
+    WarningMsg = { fg = colors.status.yellow.v70 },
+    Question = { fg = colors.general.cyan.v70 },
+    MoreMsg = { fg = colors.general.cyan.v70 },
     MsgSeparator = { link = "Whitespace" },
 
-    --[[ SPECIAL ]]
-    QuickFixLine = { fg = palette.general.cyan.v70 },
-    Directory = { fg = palette.general.cyan.v70 },
-    Title = { fg = palette.general.gray.v80, bold = true },
-    Conceal = { fg = palette.general.gray.v40 },
-    Folded = { bg = palette.general.gray.v05 },
-    NonText = { fg = palette.general.gray.v40 },
-    SpecialKey = { link = "NonText" }, -- things like "^I", "[RO]", etc
-    Whitespace = { fg = palette.general.gray.v20 },
+    QuickFixLine = { fg = colors.general.cyan.v70 },
+    Directory = { fg = colors.general.cyan.v70 },
+    Title = { fg = colors.general.gray.v80, bold = true },
+    Conceal = { fg = colors.general.gray.v40 },
+    Folded = { bg = colors.general.gray.v05 },
+    NonText = { fg = colors.general.gray.v40 },
+    SpecialKey = { link = "NonText" },
+    Whitespace = { fg = colors.general.gray.v20 },
     EndOfBuffer = { link = "Whitespace" },
 
-    --[[ FLOATING WINDOWS ]]
     NormalFloat = { link = "Normal" },
-    FloatBorder = { fg = palette.general.gray.v40, bg = background },
+    FloatBorder = { fg = colors.general.gray.v40, bg = background },
     FloatTitle = { link = "Title" },
-    FloatFooter = { fg = palette.general.gray.v60 },
+    FloatFooter = { fg = colors.general.gray.v60 },
 
-    --[[ POPUP MENUS ]]
-    Pmenu = { bg = palette.general.gray.v15 },
-    PmenuSel = { bg = palette.general.gray.v20 },
-    PmenuKind = { fg = palette.general.gray.v40 },
+    Pmenu = { bg = colors.general.gray.v15 },
+    PmenuSel = { bg = colors.general.gray.v20 },
+    PmenuKind = { fg = colors.general.gray.v40 },
     PmenuKindSel = { link = "PmenuKind" },
-    PmenuExtra = { fg = palette.general.gray.v60 },
+    PmenuExtra = { fg = colors.general.gray.v60 },
     PmenuExtraSel = { link = "PmenuExtra" },
-    PmenuSbar = { bg = palette.general.gray.v15 },
-    PmenuThumb = { bg = palette.general.gray.v30 },
+    PmenuSbar = { bg = colors.general.gray.v15 },
+    PmenuThumb = { bg = colors.general.gray.v30 },
     PmenuMatch = { bold = true },
     PmenuMatchSel = { link = "PmenuMatch" },
     WildMenu = { link = "PmenuSel" },
 
-    --[[ DIFFS ]]
-    DiffAdd = { bg = palette.status.green.v15 },
-    DiffChange = { bg = palette.status.yellow.v15 },
-    DiffDelete = { bg = palette.status.red.v15 },
-    DiffText = { bg = palette.status.yellow.v20 },
+    DiffAdd = { bg = colors.status.green.v15 },
+    DiffChange = { bg = colors.status.yellow.v15 },
+    DiffDelete = { bg = colors.status.red.v15 },
+    DiffText = { bg = colors.status.yellow.v20 },
 
-    --[[ SELECTION ]]
-    Visual = { bg = palette.general.gray.v20 },
-    VisualNOS = { bg = palette.general.gray.v15 },
+    Visual = { bg = colors.general.gray.v20 },
+    VisualNOS = { bg = colors.general.gray.v15 },
 
-    --[[ SPELLING ]]
-    SpellBad = { underdashed = true, sp = palette.general.gray.v40 },
-    SpellCap = { underdashed = true, sp = palette.general.gray.v40 },
-    SpellLocal = { underdotted = true, sp = palette.general.gray.v40 },
-    SpellRare = { underdotted = true, sp = palette.general.gray.v40 },
+    SpellBad = { underdashed = true, sp = colors.general.gray.v40 },
+    SpellCap = { underdashed = true, sp = colors.general.gray.v40 },
+    SpellLocal = { underdotted = true, sp = colors.general.gray.v40 },
+    SpellRare = { underdotted = true, sp = colors.general.gray.v40 },
 
-    --[[ STATUS LINE ]]
     StatusLine = {
-      fg = palette.general.gray.v10,
-      bg = palette.general.gray.v60,
+      fg = colors.general.gray.v10,
+      bg = colors.general.gray.v60,
       bold = true,
     },
     StatusLineNC = {
-      fg = palette.general.gray.v60,
-      bg = palette.general.gray.v20,
+      fg = colors.general.gray.v60,
+      bg = colors.general.gray.v20,
     },
     StatusLineTerm = { link = "StatusLine" },
     StatusLineTermNC = { link = "StatusLineNC" },
 
-    --[[ TAB LINE ]]
-    TabLine = { fg = palette.general.gray.v40, bg = palette.general.gray.v05 },
+    TabLine = { fg = colors.general.gray.v40, bg = colors.general.gray.v05 },
     TabLineFill = { link = "TabLine" },
-    TabLineSel = { fg = palette.general.gray.v60 },
+    TabLineSel = { fg = colors.general.gray.v60 },
 
-    --[[ WINDOW BAR ]]
-    WinBar = { fg = palette.general.gray.v40, bold = true, italic = true },
+    WinBar = { fg = colors.general.gray.v40, bold = true, italic = true },
     WinBarNC = { link = "WinBar" },
   }
 

@@ -1,11 +1,10 @@
 local M = {}
 
-function M.setup(palette)
+function M.setup()
   local groups = {
     TelescopeBorder = { link = "FloatBorder" },
     TelescopeTitle = { link = "FloatTitle" },
     TelescopeSelection = { link = "CursorLine" },
-    -- TelescopePromptCounter = { fg = palette.general.gray.v40 },
   }
 
   for key, value in pairs(groups) do

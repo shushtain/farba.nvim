@@ -1,25 +1,20 @@
 local M = {}
 
-M.swatches = function(h, x, light_mode)
-  local list = {}
+M.palettize = function(h, x)
+  local opts = require("farba.config").config
+  local palette = {}
+
   h = h or 0
-  x = x or 100
+  x = x or 0
 
-  if light_mode then
-    list["v01"] = M.hxl(h, x, 99)
-    for l = 5, 95, 5 do
-      list[string.format("v%02d", l)] = M.hxl(h, x, 100 - l)
-    end
-    list["v99"] = M.hxl(h, x, 1)
-  else
-    list["v01"] = M.hxl(h, x, 1)
-    for l = 5, 95, 5 do
-      list[string.format("v%02d", l)] = M.hxl(h, x, l)
-    end
-    list["v99"] = M.hxl(h, x, 99)
+  palette.v01 = opts.light_mode and M.hxl(h, x, 99) or M.hxl(h, x, 1)
+  for l = 5, 95, 5 do
+    palette[("v%02d"):format(l)] =
+      M.hxl(h, x, opts.light_mode and (100 - l) or l)
   end
+  palette.v99 = opts.light_mode and M.hxl(h, x, 1) or M.hxl(h, x, 99)
 
-  return list
+  return palette
 end
 
 M.hxl = function(h, x, l)
@@ -39,11 +34,7 @@ M.hxl = function(h, x, l)
     return "#FFFFFF"
   end
 
-  h = (math.pi * (h + 120)) / 180
-
-  if x <= 0 then
-    h = 0
-  end
+  h = x <= 0 and 0 or ((math.pi * (h + 120)) / 180)
 
   local k = x * l * (1 - l)
   local cosh = math.cos(h)
@@ -57,7 +48,7 @@ M.hxl = function(h, x, l)
   g = math.min(1, math.max(0, g)) * 255
   b = math.min(1, math.max(0, b)) * 255
 
-  return "#" .. string.format("%02x%02x%02x", r, g, b)
+  return string.format("#%02x%02x%02x", r, g, b)
 end
 
 return M

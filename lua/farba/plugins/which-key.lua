@@ -1,9 +1,13 @@
 local M = {}
 
-function M.setup(palette)
-  local background = palette.background and palette.general.gray.v10 or "NONE"
+function M.setup()
+  local colors = vim.g.farba.colors
+
+  local background = vim.g.farba.background and colors.general.gray.v10
+    or "NONE"
+
   local groups = {
-    WhichKeyNormal = { fg = palette.general.gray.v80, bg = background },
+    WhichKeyNormal = { fg = colors.general.gray.v80, bg = background },
   }
 
   for key, value in pairs(groups) do

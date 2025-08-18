@@ -1,57 +1,51 @@
 local M = {}
 
 function M.setup()
-  local colors = require("farba.config").options.colors
-  local background = require("farba.config").options.background
-  local light_mode = require("farba.config").options.light_mode
-  local palette = {}
+  local opts = require("farba.config").config
+  local palettize = require("farba.utils").palettize
+  local colors = {}
 
-  palette.general = {}
-  for key, value in pairs(colors.general) do
+  colors.general = {}
+  for key, value in pairs(opts.colors.general) do
     if type(value) == "table" and #value >= 2 then
-      palette.general[key] =
-        require("farba.utils").swatches(value[1], value[2], light_mode)
+      colors.general[key] = palettize(value[1], value[2])
     else
-      palette.general[key] = require("farba.utils").swatches(0, 0, light_mode)
+      colors.general[key] = palettize()
     end
   end
 
-  palette.status = {}
-  for key, value in pairs(colors.status) do
+  colors.status = {}
+  for key, value in pairs(opts.colors.status) do
     if type(value) == "table" and #value >= 2 then
-      palette.status[key] =
-        require("farba.utils").swatches(value[1], value[2], light_mode)
+      colors.status[key] = palettize(value[1], value[2])
     else
-      palette.status[key] = palette.general[key]
+      colors.status[key] = colors.general[key]
     end
   end
 
-  palette.terminal = {}
-  for key, value in pairs(colors.terminal) do
+  colors.terminal = {}
+  for key, value in pairs(opts.colors.terminal) do
     if type(value) == "table" and #value >= 2 then
-      palette.terminal[key] =
-        require("farba.utils").swatches(value[1], value[2], light_mode)
+      colors.terminal[key] = palettize(value[1], value[2])
     else
-      palette.terminal[key] = palette.general[key]
+      colors.terminal[key] = colors.general[key]
     end
   end
 
-  palette.syntax = {}
-  for key, value in pairs(colors.syntax) do
+  colors.syntax = {}
+  for key, value in pairs(opts.colors.syntax) do
     if type(value) == "table" and #value >= 2 then
-      palette.syntax[key] =
-        require("farba.utils").swatches(value[1], value[2], light_mode)
+      colors.syntax[key] = palettize(value[1], value[2])
     else
-      palette.syntax[key] = palette.general[key]
+      colors.syntax[key] = colors.general[key]
     end
   end
 
-  palette.background = true
-  if type(background) == "boolean" then
-    palette.background = background
-  end
-
-  return palette
+  vim.g.farba = {
+    light_mode = opts.light_mode,
+    background = opts.background,
+    colors = colors,
+  }
 end
 
 return M
