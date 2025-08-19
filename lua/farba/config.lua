@@ -1,6 +1,7 @@
 ---@class Farba.Config
 ---@field light_mode? boolean If `true`, generate a light theme. Default is `false`
 ---@field background? boolean If `false`, make editor background transparent. Default is `false`
+---@field fill_floats? boolean If `true`, float windows will have separate background color. This looks nice with `winborder` set to "solid". If you prefer outlined windows, a separate background will leak through borders, so you might want to switch this to `false`. Default is `true`
 ---@field colors? Farba.Config.Colors Color values to base the theme on
 
 ---@class Farba.Config.Colors
@@ -29,6 +30,7 @@ local M = {}
 M.config = {
   light_mode = false,
   background = true,
+  fill_floats = true,
   colors = {
     general = {
       gray = { 0, 0 },

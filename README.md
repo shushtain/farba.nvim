@@ -112,7 +112,11 @@ Setup is optional and used only to change default config options. If the config 
 ```lua
 require("farba").setup({
   light_mode = false,
+  -- if `false`, make backgrounds transparent
   background = true,
+  -- if `false`, don't use separate color for floating windows,
+  -- so you could just outline them with 'winborder'
+  fill_floats = true,
   colors = {
     general = {
       gray = { 0, 0 },
@@ -163,6 +167,7 @@ require("farba").setup({
     local light = {
       light_mode = true,
       background = false,
+      fill_floats = false,
       colors = { general = { yellow = { 25, 75 } } },
     }
 
@@ -221,7 +226,7 @@ require("farba").setup({
 
 ## Additional features
 
-If you want to make some additional plugin pretty or just need a color from the Farba palette somewhere else, get it from `vim.g.farba`. For example, `vim.g.farba.colors.general.gray.v25`. To see all available colors, call `:lua print(vim.inspect(vim.g.farba))`.
+If you want to make some additional plugin pretty or just need a color from the Farba palette somewhere else, get it from `vim.g.farba`. For example, `vim.g.farba.colors.general.gray.v25`. To see all available colors, call `:lua print(vim.inspect(vim.g.farba))`. Expect `v01`, `v99`, and `v05-95` with step `5` to be available.
 
 ## How does it work?
 

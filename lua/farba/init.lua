@@ -20,9 +20,7 @@ function M.colorscheme()
   end
 
   local plugins = {
-    require("farba.plugins.telescope"),
     require("farba.plugins.gitsigns"),
-    require("farba.plugins.which-key"),
   }
   for _, item in ipairs(plugins) do
     item.setup()

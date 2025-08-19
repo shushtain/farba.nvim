@@ -44,6 +44,7 @@ function M.setup()
   vim.g.farba = {
     light_mode = opts.light_mode,
     background = opts.background,
+    fill_floats = opts.fill_floats,
     colors = colors,
   }
 end

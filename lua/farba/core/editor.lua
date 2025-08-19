@@ -5,19 +5,21 @@ function M.setup()
 
   local background = vim.g.farba.background and colors.general.gray.v10
     or "NONE"
+  local float = vim.g.farba.fill_floats and colors.general.gray.v15
+    or background
 
   local groups = {
-    Normal = { fg = colors.general.gray.v90, bg = background },
+    Normal = { fg = colors.general.gray.v80, bg = background },
     NormalNC = { link = "Normal" },
     WinSeparator = { fg = colors.general.gray.v05 },
 
-    Cursor = { fg = colors.general.gray.v10, bg = colors.general.gray.v90 },
+    Cursor = { fg = colors.general.gray.v10, bg = colors.general.gray.v80 },
     TermCursor = { link = "Cursor" },
     lCursor = { link = "Cursor" },
     CursorIM = { link = "Cursor" },
 
-    ColorColumn = { bg = colors.general.gray.v15 },
-    CursorLine = { bg = colors.general.gray.v15 },
+    ColorColumn = { bg = colors.general.gray.v13 },
+    CursorLine = { bg = colors.general.gray.v13 },
     CursorColumn = { link = "CursorLine" },
 
     LineNr = { fg = colors.general.gray.v40 },
@@ -56,10 +58,10 @@ function M.setup()
     Whitespace = { fg = colors.general.gray.v20 },
     EndOfBuffer = { link = "Whitespace" },
 
-    NormalFloat = { link = "Normal" },
-    FloatBorder = { fg = colors.general.gray.v40, bg = background },
-    FloatTitle = { link = "Title" },
-    FloatFooter = { fg = colors.general.gray.v60 },
+    NormalFloat = { fg = colors.general.gray.v80, bg = float },
+    FloatBorder = { fg = colors.general.gray.v40, bg = float },
+    FloatTitle = { fg = colors.general.gray.v60, bg = float, bold = true },
+    FloatFooter = { fg = colors.general.gray.v60, bg = float },
 
     Pmenu = { bg = colors.general.gray.v15 },
     PmenuSel = { bg = colors.general.gray.v20 },

@@ -13,6 +13,7 @@ M.palettize = function(h, x)
       M.hxl(h, x, opts.light_mode and (100 - l) or l)
   end
   palette.v99 = opts.light_mode and M.hxl(h, x, 1) or M.hxl(h, x, 99)
+  palette.v13 = opts.light_mode and M.hxl(h, x, 87) or M.hxl(h, x, 13)
 
   return palette
 end
