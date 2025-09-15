@@ -100,7 +100,7 @@ These are meant to inspire you to mix your own Farba. If you especially like one
 
 ## Setup
 
-Setup is optional and used only to change default config options. If the config table is outside of `setup()` function, use `---@type Farba.Config` to enable LSP help.
+Setup is optional and used only to change default config options. If the config table is outside `setup()` function, use `---@type Farba.Config` to enable LSP help.
 
 ### Defaults
 

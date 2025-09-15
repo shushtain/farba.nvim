@@ -53,46 +53,46 @@ function M.setup()
     Removed = { fg = colors.status.red.v70 },
 
     DiagnosticError = { fg = colors.status.red.v70 },
-    DiagnosticVirtualTextError = { fg = colors.status.red.v40 },
-    DiagnosticUnderlineError = { undercurl = true, sp = colors.status.red.v60 },
-    DiagnosticFloatingError = { link = "DiagnosticError" },
-    DiagnosticSignError = { fg = colors.status.red.v40 },
-
     DiagnosticWarn = { fg = colors.status.yellow.v70 },
+    DiagnosticInfo = { fg = colors.general.blue.v70 },
+    DiagnosticHint = { fg = colors.general.gray.v70 },
+    DiagnosticOk = { fg = colors.status.green.v70 },
+
+    DiagnosticVirtualTextError = { fg = colors.status.red.v40 },
     DiagnosticVirtualTextWarn = { fg = colors.status.yellow.v40 },
+    DiagnosticVirtualTextInfo = { fg = colors.general.blue.v40 },
+    DiagnosticVirtualTextHint = { fg = colors.general.gray.v40 },
+    DiagnosticVirtualTextOk = { fg = colors.status.green.v40 },
+
+    DiagnosticVirtualLinesError = { link = "DiagnosticVirtualTextError" },
+    DiagnosticVirtualLinesWarn = { link = "DiagnosticVirtualTextWarn" },
+    DiagnosticVirtualLinesInfo = { link = "DiagnosticVirtualTextInfo" },
+    DiagnosticVirtualLinesHint = { link = "DiagnosticVirtualTextHint" },
+    DiagnosticVirtualLinesOk = { link = "DiagnosticVirtualTextOk" },
+
+    DiagnosticUnderlineError = { undercurl = true, sp = colors.status.red.v40 },
     DiagnosticUnderlineWarn = {
       undercurl = true,
-      sp = colors.status.yellow.v60,
+      sp = colors.status.yellow.v40,
     },
+    DiagnosticUnderlineInfo = { undercurl = true, sp = colors.general.blue.v40 },
+    DiagnosticUnderlineHint = { undercurl = true, sp = colors.general.gray.v40 },
+    DiagnosticUnderlineOk = { undercurl = true, sp = colors.status.green.v40 },
+
+    DiagnosticFloatingError = { link = "DiagnosticError" },
     DiagnosticFloatingWarn = { link = "DiagnosticWarn" },
-    DiagnosticSignWarn = { fg = colors.status.yellow.v40 },
-
-    DiagnosticInfo = { fg = colors.general.blue.v70 },
-    DiagnosticVirtualTextInfo = { fg = colors.general.blue.v40 },
-    DiagnosticUnderlineInfo = {
-      underline = true,
-      sp = colors.general.blue.v60,
-    },
     DiagnosticFloatingInfo = { link = "DiagnosticInfo" },
-    DiagnosticSignInfo = { fg = colors.general.blue.v40 },
-
-    DiagnosticHint = { fg = colors.general.gray.v60 },
-    DiagnosticVirtualTextHint = { fg = colors.general.gray.v40 },
-    DiagnosticUnderlineHint = {
-      underline = true,
-      sp = colors.general.gray.v40,
-    },
     DiagnosticFloatingHint = { link = "DiagnosticHint" },
-    DiagnosticSignHint = { fg = colors.general.gray.v40 },
-
-    DiagnosticOk = { fg = colors.status.green.v70 },
-    DiagnosticVirtualTextOk = { fg = colors.status.green.v40 },
-    DiagnosticUnderlineOk = { underline = true, sp = colors.status.green.v60 },
     DiagnosticFloatingOk = { link = "DiagnosticOk" },
-    DiagnosticSignOk = { fg = colors.status.green.v40 },
+
+    DiagnosticSignError = { link = "DiagnosticVirtualTextError" },
+    DiagnosticSignWarn = { link = "DiagnosticVirtualTextWarn" },
+    DiagnosticSignInfo = { link = "DiagnosticVirtualTextInfo" },
+    DiagnosticSignHint = { link = "DiagnosticVirtualTextHint" },
+    DiagnosticSignOk = { link = "DiagnosticVirtualTextOk" },
 
     DiagnosticDeprecated = { strikethrough = true },
-    DiagnosticUnnecessary = { fg = colors.general.gray.v40, italic = true },
+    DiagnosticUnnecessary = { fg = colors.general.gray.v40 },
 
     ["@variable"] = { fg = colors.syntax.blue.v80 },
     ["@variable.builtin"] = { fg = colors.syntax.blue.v80, bold = true },
@@ -116,7 +116,7 @@ function M.setup()
     ["@string.special.symbol"] = { link = "@string.special" },
     ["@string.special.path"] = { link = "@string.special" },
     ["@string.special.url"] = {
-      fg = colors.syntax.yellow.v80,
+      fg = colors.syntax.yellow.v70,
       underline = true,
     },
 
@@ -191,8 +191,8 @@ function M.setup()
     ["@markup.link.label"] = { link = "@markup.link" },
     ["@markup.link.url"] = { link = "@markup.link" },
 
-    ["@markup.raw"] = { fg = colors.syntax.gray.v70 },
-    ["@markup.raw.block"] = { fg = colors.syntax.gray.v70 },
+    ["@markup.raw"] = { fg = colors.syntax.gray.v60 },
+    ["@markup.raw.block"] = { fg = colors.syntax.gray.v60 },
 
     ["@markup.list"] = { fg = colors.syntax.blue.v60 },
     ["@markup.list.checked"] = { fg = colors.syntax.blue.v80 },
@@ -245,6 +245,9 @@ function M.setup()
     -- ["@lsp.mod.documentation"] = { link = "@comment.documentation" },
     ["@lsp.mod.deprecated"] = { strikethrough = true },
     ["@lsp.mod.mutable"] = { italic = true },
+
+    -- ["@lsp.mod.unsafe"] = { underline = true },
+    ["@lsp.typemod.keyword.unsafe"] = { fg = colors.syntax.red.v50 },
 
     GlyphPalette0 = { fg = colors.general.gray.v30 },
     GlyphPalette1 = { fg = colors.general.red.v50 },

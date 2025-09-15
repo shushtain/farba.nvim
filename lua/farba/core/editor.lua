@@ -52,7 +52,11 @@ function M.setup()
     Directory = { fg = colors.general.cyan.v70 },
     Title = { fg = colors.general.gray.v80, bold = true },
     Conceal = { fg = colors.general.gray.v40 },
-    Folded = { bg = colors.general.gray.v05 },
+    Folded = {
+      fg = colors.general.gray.v40,
+      bg = colors.general.gray.v13,
+      italic = true,
+    },
     NonText = { fg = colors.general.gray.v40 },
     SpecialKey = { link = "NonText" },
     Whitespace = { fg = colors.general.gray.v20 },
@@ -84,7 +88,7 @@ function M.setup()
     VisualNOS = { bg = colors.general.gray.v15 },
 
     SpellBad = { underdashed = true, sp = colors.general.gray.v40 },
-    SpellCap = { underdashed = true, sp = colors.general.gray.v40 },
+    SpellCap = { underdotted = true, sp = colors.general.gray.v40 },
     SpellLocal = { underdotted = true, sp = colors.general.gray.v40 },
     SpellRare = { underdotted = true, sp = colors.general.gray.v40 },
 
@@ -102,7 +106,7 @@ function M.setup()
 
     TabLine = { fg = colors.general.gray.v40, bg = colors.general.gray.v05 },
     TabLineFill = { link = "TabLine" },
-    TabLineSel = { fg = colors.general.gray.v60 },
+    TabLineSel = { fg = colors.general.gray.v60, bold = true },
 
     WinBar = { fg = colors.general.gray.v40, bold = true, italic = true },
     WinBarNC = { link = "WinBar" },
