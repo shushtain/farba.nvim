@@ -109,7 +109,7 @@ function M.setup()
     ["@label"] = { fg = colors.syntax.magenta.v70 },
 
     ["@string"] = { fg = colors.syntax.yellow.v70 },
-    ["@string.documentation"] = { link = "@comment.documentation" },
+    ["@string.documentation"] = { link = "@string" },
     ["@string.regexp"] = { fg = colors.syntax.cyan.v80 },
     ["@string.escape"] = { fg = colors.syntax.magenta.v60 },
     ["@string.special"] = { fg = colors.syntax.yellow.v80 },
