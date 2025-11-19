@@ -1,241 +1,84 @@
-# Farba for Neovim
+j Farba for Neovim
 
-One theme to have them all.
+> one theme to have them all
+> one dark for daily driving
+> one blue for city hall
+> and one in light to blind them
 
-> "фарба" is a Ukrainian word for paint.  
-> Has to be of German origin, right?
+Farba is a Neovim theme plugin. It lets you customize colors the theme is built upon, and makes sure the results stay accessible by calculating HEX values from Cubehelix coordinates.
 
-## Examples
-
-These are meant to inspire you to mix your own Farba. If you especially like one of them, use the provided color values. Read the [Setup](#setup) section for more details.
-
-### Jungle
-
-![Jungle](example-jungle.png)
-
-```lua
-{
-  gray    = {  90,   5 },
-  red     = {   0, 100 },
-  green   = {  20, 100 },
-  yellow  = {  70,  50 },
-  blue    = {  20,  75 },
-  magenta = {  90,  50 },
-  cyan    = {   0, 300 },
-}
-```
-
-### Dream
-
-![Dream](example-dream.png)
-
-```lua
-{
-  gray    = { 260,  25 },
-  red     = {   0, 100 },
-  green   = { 140,  50 },
-  yellow  = {  20,  75 },
-  blue    = { 220,  50 },
-  magenta = { 260,  50 },
-  cyan    = { 180,  50 },
-}
-```
-
-### Candy
-
-![Candy](example-candy.png)
-
-```lua
-{
-  gray    = {   0,   5 },
-  red     = {   0, 100 },
-  green   = { 340, 100 },
-  yellow  = { 170,  50 },
-  blue    = { 340,  75 },
-  magenta = { 340,  50 },
-  cyan    = { 340, 300 },
-}
-```
-
-### Default
-
-![Default](example-default.png)
-
-```lua
-{
-  gray    = {   0,   0 },
-  red     = {   0, 100 },
-  green   = {  90,  50 },
-  yellow  = {  30,  75 },
-  blue    = { 200,  50 },
-  magenta = { 300,  50 },
-  cyan    = { 150,  50 },
-}
-```
-
-## Features
-
-- By default, it's just a standard theme (see screenshots).
-- Colors are `cterm` aligned: gray, red, green, yellow, blue, magenta, cyan.
-- You can change hue and saturation for different highlight groups:
-  - General (this is primarily about UI/editor).
-  - Status (errors, warnings, successes, diffs).
-  - Syntax (native, treesitter and LSP highlights).
-  - Terminal (have separate terminal colors if you want).
-
-## Installation
-
-### Lazy
-
-```lua
-{
-  "shushtain/farba.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    vim.cmd("colorscheme farba")
-  end,
-}
-```
+![Example](https://github.com/shushtain/farba.nvim/blob/main/example.gif)
 
 ## Setup
 
-Setup is optional and used only to change default config options. If the config table is outside `setup()` function, use `---@type Farba.Config` to enable LSP help.
-
-### Defaults
-
-- Colors are defined as `{ hue, sat }`, where:
-  - `hue` 0-360
-  - `sat` 0-100+
-- `false` means the "general" version will be used.
+Setup is optional but recommended. The primary purpose of the standard theme is to color different groups with different colors, so it's obvious how to customize it to your needs. Here are the defaults:
 
 ```lua
+---@type Farba.Config
 require("farba").setup({
-  light_mode = false,
-  -- if `false`, make backgrounds transparent
-  background = true,
-  -- if `false`, don't use separate color for floating windows,
-  -- so you could just outline them with 'winborder'
-  fill_floats = true,
-  colors = {
+  mode = nil, -- "light"|"dark" or let 'vim.o.background' decide
+  transparency = {
+    normal = false, -- `true` to hide background
+    float = false, -- `true` to hide floating window background
+  },
+  palette = {
     general = {
-      gray = { 0, 0 },
-      red = { 0, 100 },
-      green = { 120, 50 },
-      yellow = { 40, 75 },
-      blue = { 200, 50 },
-      magenta = { 280, 50 },
-      cyan = { 150, 50 },
+      gray    = { hue = 0,   sat = 0 },
+      red     = { hue = 0,   sat = 100 },
+      yellow  = { hue = 30,  sat = 75 },
+      green   = { hue = 80,  sat = 50 },
+      cyan    = { hue = 120, sat = 75 },
+      blue    = { hue = 200, sat = 25 },
+      magenta = { hue = 260, sat = 35 },
     },
-    status = {
-      red = false, -- error, diff deleted
-      yellow = false, -- warning, diff changed
-      green = false, -- success, diff added
-    },
-    terminal = {
-      gray = false,
-      red = false,
-      green = false,
-      yellow = false,
-      blue = false,
-      magenta = false,
-      cyan = false,
-    },
-    syntax = {
-      gray = false,
-      red = false,
-      green = false,
-      yellow = false,
-      blue = false,
-      magenta = false,
-      cyan = false,
-    },
+    -- the following use the same structure
+    -- missing fields use `general` as fallback
+    status = nil,
+    terminal = nil,
+    syntax = nil,
   },
 })
 ```
 
-### Example
+See `:h farba.txt` for details.
+
+## Globals
+
+Another useful feature of the plugin is `vim.g.farba`. Please be mindful that `vim.g.farba` is ready AFTER the colorscheme is set. Don't use it in contexts that come before you initialize the theme. The most reliable pattern is:
 
 ```lua
-{
-  "shushtain/farba.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    -- Here is my light theme.
-    ---@type Farba.Config
-    local light = {
-      light_mode = true,
-      background = false,
-      fill_floats = false,
-      colors = { general = { yellow = { 25, 75 } } },
-    }
-
-    -- Here is my dark theme.
-    ---@type Farba.Config
-    local dark = {
-      colors = {
-        -- Everything is grayscale.
-        general = {
-          gray = false,
-          red = false,
-          green = false,
-          yellow = false,
-          blue = false,
-          magenta = false,
-          cyan = false,
-        },
-        -- Max color for alerts.
-        status = {
-          red = { 0, 100 },
-          yellow = { 30, 100 },
-          green = { 120, 100 },
-        },
-        -- Essential terminal colors.
-        terminal = {
-          red = { 0, 100 },
-          green = { 120, 50 },
-          yellow = { 30, 75 },
-        },
-        -- Gruvbox-like syntax.
-        syntax = {
-          gray = { 25, 50 },
-          red = { 0, 100 },
-          green = { 120, 50 },
-          yellow = { 40, 50 },
-          blue = { 90, 50 },
-          magenta = { 120, 50 },
-          cyan = { 0, 50 },
-        },
-      },
-    }
-
-    require("farba").setup(dark)
-    vim.cmd("colorscheme farba")
-    vim.g.is_theme_dark = true
-
-    vim.keymap.set("n", "<leader>th", function()
-      local theme = vim.g.is_theme_dark and light or dark
-      require("farba").setup(theme)
-      vim.cmd("colorscheme farba")
-      vim.g.is_theme_dark = not vim.g.is_theme_dark
-    end)
-  end,
-}
+vim.tbl_get(vim.g, "farba", "palette", "general", "gray", "v10") or "#f00f00"
 ```
 
-## Additional features
+This way you won't be troubled if something happens to your `farba`, or if you simply decide to switch to another theme plugin completely.
 
-If you want to make some additional plugin pretty or just need a color from the Farba palette somewhere else, get it from `vim.g.farba`. For example, `vim.g.farba.colors.general.gray.v25`. To see all available colors, call `:lua print(vim.inspect(vim.g.farba))`. Expect `v01`, `v99`, and `v05-95` with step `5` to be available.
+`vim.g.farba` stores the following:
 
-## How does it work?
+### mode
 
-- Provided hue/saturation pairs are converted to the ranges of HEX swatches.
-- Conversion is similar to HSL -> HEX, but actually uses Cubehelix, so:
-  - Color contrast is the same, no matter you prefer blue or yellow themes.
-  - To achieve that, saturation of 100% is actually less than in HSL.
-  - You have to set 500% saturation for some colors to get the maximum.
-  - Using more than 100% saturation may break color contrast consistency.
+At this point the mode is defined. There is no `nil` state. It's either `"light"` or `"dark"`.
+
+### transparency
+
+Same `normal` and `float` fields from your config. Values unchanged.
+
+### palette
+
+Same groups and subgroups. Each subgroup now stores colors instead of `hue` and `sat`. The guaranteed range is `[5:95:5]` (from 5 inclusive to 95 inclusive with step 5). Values are HEX. Keys are in `v%02d` format (`v05`, `v10`, `v55`, etc). Currently also has `v01`, `v99`, and `v13`.
+
+In light mode, the values (not keys) change to their opposites. Your custom element set to `vim.g.palette.general.gray.v05` will become a color with lightness 95 when `mode = "light"`.
+
+Please be mindful that `vim.g.farba` is ready AFTER the colorscheme is set. Don't use it in contexts that come before you initialize the theme. The most reliable pattern is:
+
+## Cache
+
+`farba.nvim` caches themes to shave whopping 42% of total startup time on theme reuse! That's about 4 milliseconds, folks. The next version will be banana-flavored.
+
+The cache is stored in `vim.fn.stdpath("cache") .. "/farba.nvim/"`. You may clear it by calling:
+
+```lua
+require("farba").purge()
+```
 
 ## Credits
 

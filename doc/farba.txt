@@ -1,0 +1,145 @@
+*farba.txt*                                                              Farba
+
+Farba is a Neovim theme plugin. It lets you customize colors the theme
+is built upon, and makes sure the results stay accessible by calculating
+HEX values from Cubehelix coordinates.
+
+==============================================================================
+SETUP                                                            *farba-setup*
+
+Setup is optional but recommended. The primary purpose of the standard theme
+is to color different groups with different colors, so it's obvious how to
+customize it to your needs.
+
+Here are the defaults:
+
+>lua
+    ---@type Farba.Config
+    require("farba").setup({
+      mode = nil,
+      transparency = { normal = false, float = false },
+      palette = {
+        general = {
+          gray    = { hue = 0,   sat = 0 },
+          red     = { hue = 0,   sat = 100 },
+          yellow  = { hue = 30,  sat = 75 },
+          green   = { hue = 80,  sat = 50 },
+          cyan    = { hue = 120, sat = 75 },
+          blue    = { hue = 200, sat = 25 },
+          magenta = { hue = 260, sat = 35 },
+        },
+        status   = { gray = nil, red = nil,  yellow = nil, green = nil,
+                     cyan = nil, blue = nil, magenta = nil },
+        terminal = { gray = nil, red = nil,  yellow = nil, green = nil,
+                     cyan = nil, blue = nil, magenta = nil },
+        syntax   = { gray = nil, red = nil,  yellow = nil, green = nil,
+                     cyan = nil, blue = nil, magenta = nil }
+      }
+    }
+<
+
+
+                                                            *farba-setup#mode*
+mode ~
+
+If set, enforce the specified theme variant. Otherwise, rely on 'background'.
+Possible values: `"light"|"dark"|nil`. Default is `nil`.
+
+                                                    *farba-setup#transparency*
+transparency ~
+
+Has two fields: `normal` and `float`. Both default to `false`.
+If `normal = true`, make editor background transparent.
+If `float = true`, make floating window background transparent.
+
+                                                         *farba-setup#palette*
+palette ~
+
+There are four main categories:
+
+    `general`
+        Used mainly for general editor UI.
+        Do not convey much meaning. Best when muted.
+        All other groups use this one as fallback.
+
+    `status`
+        Used for messages, diagnostics, etc.
+        Having distinct categories is crucial. Best when vivid.
+
+    `terminal`
+        Used in terminal buffers.
+        Some utilities rely on `base16` colors to be distinct.
+
+    `syntax`
+        Used for vim syntax, tree-sitter grammars, LSP highlights.
+        Completely subjective and quirky.
+
+Groups correspond to a semantic (rather than structural) organization.
+For example, `@comment.warning` highlight is structurally a syntactic group.
+However, its role is to alert a person, so it is set up with `status` colors.
+
+Each group has 7 subgroups which are basically `base16` bases with `gray`
+replacing both `black` and `white`. And each subgroup is set by specifying:
+
+    `hue`
+        Hue in range `[0:360]` with standard representation
+        where red at `0`, green at `120`, and blue at `240`.
+
+    `sat`
+        Saturation in range `[0:100]` or higher.
+        Cubehelix's `100` is less saturated than in HSL,
+        but can guarantee stable color contrast between.
+        Higher values are useful for vivid, signal colors.
+        Some colors reach max at around `500`.
+
+==============================================================================
+GLOBALS                                                        *farba-globals*
+
+Another useful feature of the plugin is `vim.g.farba` with fields:
+
+    `mode`
+        At this point the mode is defined. There is no `nil` state.
+        It's either `"light"` or `"dark"`.
+
+    `transparency`
+        Same `normal` and `float` fields from your config.
+        Values unchanged.
+
+    `palette`
+        Same groups and subgroups. Each subgroup now stores colors
+        instead of `hue` and `sat`. The guaranteed range is `[5:95:5]`
+        (from 5 inclusive to 95 inclusive with step 5). Values are HEX.
+        Keys are in `v%02d` format (`v05`, `v10`, `v55`, etc).
+        Currently also has `v01`, `v99`, and `v13`.
+
+        In light mode, the values (not keys) change to their opposites.
+        Your custom element set to `vim.g.palette.general.gray.v05`
+        will become a color with lightness 95 when `mode = "light"`.
+
+Please be mindful that `vim.g.farba` is ready AFTER the colorscheme is set.
+Don't use it in contexts that come before you initialize the theme.
+The most reliable pattern is:
+
+>lua
+    vim.tbl_get(vim.g, "farba", "palette", "general", "gray", "v10")
+    or "#f00f00"
+<
+
+This way you won't be troubled if something happens to your `farba`,
+or if you simply decide to switch to another theme plugin completely.
+
+==============================================================================
+CACHE                                                            *farba-cache*
+
+`farba.nvim` caches themes to shave whopping 42% of total time on theme reuse!
+That's about 4 milliseconds, folks. The next version will be banana-flavored.
+
+The cache is stored in `vim.fn.stdpath("cache") .. "/farba.nvim/"`.
+You may clear it by calling:
+
+>lua
+    require("farba").purge()
+<
+
+
+vim:tw=78:ts=8:ft=help:norl:

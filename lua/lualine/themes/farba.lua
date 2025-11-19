@@ -1,116 +1,116 @@
-local colors = vim.g.farba.colors
-local theme = {}
+local palette = vim.g.farba.palette
+local M = {}
 
-theme.normal = {
+M.normal = {
   a = {
-    fg = colors.general.gray.v20,
-    bg = colors.general.gray.v60,
+    fg = palette.general.gray.v20,
+    bg = palette.general.gray.v60,
     gui = "bold",
   },
   b = {
-    fg = colors.general.gray.v70,
-    bg = colors.general.gray.v30,
+    fg = palette.general.gray.v70,
+    bg = palette.general.gray.v30,
   },
   c = {
-    fg = colors.general.gray.v70,
-    bg = colors.general.gray.v20,
+    fg = palette.general.gray.v70,
+    bg = palette.general.gray.v20,
   },
 }
 
-theme.insert = {
+M.insert = {
   a = {
-    fg = colors.general.green.v20,
-    bg = colors.general.green.v60,
+    fg = palette.general.green.v20,
+    bg = palette.general.green.v60,
     gui = "bold",
   },
   b = {
-    fg = colors.general.green.v70,
-    bg = colors.general.green.v30,
+    fg = palette.general.green.v70,
+    bg = palette.general.green.v30,
   },
   c = {
-    fg = colors.general.green.v70,
-    bg = colors.general.green.v20,
+    fg = palette.general.green.v70,
+    bg = palette.general.green.v20,
   },
 }
 
-theme.visual = {
+M.visual = {
   a = {
-    fg = colors.general.blue.v20,
-    bg = colors.general.blue.v60,
+    fg = palette.general.blue.v20,
+    bg = palette.general.blue.v60,
     gui = "bold",
   },
   b = {
-    fg = colors.general.blue.v70,
-    bg = colors.general.blue.v30,
+    fg = palette.general.blue.v70,
+    bg = palette.general.blue.v30,
   },
   c = {
-    fg = colors.general.blue.v70,
-    bg = colors.general.blue.v20,
+    fg = palette.general.blue.v70,
+    bg = palette.general.blue.v20,
   },
 }
 
-theme.replace = {
+M.replace = {
   a = {
-    fg = colors.general.yellow.v20,
-    bg = colors.general.yellow.v60,
+    fg = palette.general.yellow.v20,
+    bg = palette.general.yellow.v60,
     gui = "bold",
   },
   b = {
-    fg = colors.general.yellow.v70,
-    bg = colors.general.yellow.v30,
+    fg = palette.general.yellow.v70,
+    bg = palette.general.yellow.v30,
   },
   c = {
-    fg = colors.general.yellow.v70,
-    bg = colors.general.yellow.v20,
+    fg = palette.general.yellow.v70,
+    bg = palette.general.yellow.v20,
   },
 }
 
-theme.command = {
+M.command = {
   a = {
-    fg = colors.general.magenta.v20,
-    bg = colors.general.magenta.v60,
+    fg = palette.general.magenta.v20,
+    bg = palette.general.magenta.v60,
     gui = "bold",
   },
   b = {
-    fg = colors.general.magenta.v70,
-    bg = colors.general.magenta.v30,
+    fg = palette.general.magenta.v70,
+    bg = palette.general.magenta.v30,
   },
   c = {
-    fg = colors.general.magenta.v70,
-    bg = colors.general.magenta.v20,
+    fg = palette.general.magenta.v70,
+    bg = palette.general.magenta.v20,
   },
 }
 
-theme.terminal = {
+M.terminal = {
   a = {
-    fg = colors.general.cyan.v20,
-    bg = colors.general.cyan.v60,
+    fg = palette.general.cyan.v20,
+    bg = palette.general.cyan.v60,
     gui = "bold",
   },
   b = {
-    fg = colors.general.cyan.v70,
-    bg = colors.general.cyan.v30,
+    fg = palette.general.cyan.v70,
+    bg = palette.general.cyan.v30,
   },
   c = {
-    fg = colors.general.cyan.v70,
-    bg = colors.general.cyan.v20,
+    fg = palette.general.cyan.v70,
+    bg = palette.general.cyan.v20,
   },
 }
 
-theme.inactive = {
+M.inactive = {
   a = {
-    fg = colors.general.gray.v60,
-    bg = colors.general.gray.v20,
+    fg = palette.general.gray.v60,
+    bg = palette.general.gray.v20,
     gui = "bold",
   },
   b = {
-    fg = colors.general.gray.v60,
-    bg = colors.general.gray.v20,
+    fg = palette.general.gray.v60,
+    bg = palette.general.gray.v20,
   },
   c = {
-    fg = colors.general.gray.v60,
-    bg = colors.general.gray.v20,
+    fg = palette.general.gray.v60,
+    bg = palette.general.gray.v20,
   },
 }
 
-return theme
+return M

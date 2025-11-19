@@ -1,33 +1,36 @@
 local M = {}
 
-function M.colorscheme()
-  if vim.g.colors_name then
-    vim.cmd("hi clear")
-  end
-
-  vim.opt.termguicolors = true
-  vim.g.colors_name = "farba"
-
-  require("farba.palette").setup()
-
-  local core = {
-    require("farba.core.editor"),
-    require("farba.core.syntax"),
-    require("farba.core.terminal"),
-  }
-  for _, item in ipairs(core) do
-    item.setup()
-  end
-
-  local plugins = {
-    require("farba.plugins.gitsigns"),
-  }
-  for _, item in ipairs(plugins) do
-    item.setup()
-  end
+---Clear cached themes
+function M.purge()
+  require("farba.cache").clear()
 end
 
----Override default configuration.
+---Apply theme
+function M.colorscheme()
+  local theme = require("farba.theme").generate()
+  if not theme then
+    vim.notify(
+      "Failed to generate theme from setup. Check config",
+      vim.log.levels.WARN
+    )
+    return nil
+  end
+  vim.g.farba = theme
+
+  vim.o.termguicolors = true
+  -- ---@diagnostic disable-next-line: unnecessary-if
+  -- if vim.g.colors_name then
+  --   vim.cmd("hi clear")
+  -- end
+
+  require("farba.core").setup()
+  require("farba.plugins").setup()
+
+  vim.g.colors_name = "farba"
+  vim.o.background = vim.g.farba.mode
+end
+
+---Set theme configuration
 ---@param opts? Farba.Config
 function M.setup(opts)
   require("farba.config").setup(opts)
