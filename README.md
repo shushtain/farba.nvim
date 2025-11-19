@@ -1,4 +1,4 @@
-j Farba for Neovim
+# Farba for Neovim
 
 > one theme to have them all
 > one dark for daily driving
