@@ -14,6 +14,10 @@ function M.setup()
   local groups = {
     NoneNormal = { fg = general.gray.v10, bg = bg_normal },
     NoneFloat = { fg = fg_float, bg = bg_float },
+    NoFgNormal = { fg = general.gray.v10 },
+    NoBgNormal = { bg = bg_normal },
+    NoFgFloat = { fg = fg_float },
+    NoBgFloat = { bg = bg_float },
 
     qfFileName = { link = "Directory" },
     qfLineNr = { link = "LineNr" },

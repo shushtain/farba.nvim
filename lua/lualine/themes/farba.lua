@@ -12,7 +12,7 @@ M.normal = {
     bg = palette.general.gray.v30,
   },
   c = {
-    fg = palette.general.gray.v70,
+    fg = palette.general.gray.v65,
     bg = palette.general.gray.v20,
   },
 }
@@ -28,7 +28,7 @@ M.insert = {
     bg = palette.general.green.v30,
   },
   c = {
-    fg = palette.general.green.v70,
+    fg = palette.general.green.v65,
     bg = palette.general.green.v20,
   },
 }
@@ -44,7 +44,7 @@ M.visual = {
     bg = palette.general.blue.v30,
   },
   c = {
-    fg = palette.general.blue.v70,
+    fg = palette.general.blue.v65,
     bg = palette.general.blue.v20,
   },
 }
@@ -60,7 +60,7 @@ M.replace = {
     bg = palette.general.yellow.v30,
   },
   c = {
-    fg = palette.general.yellow.v70,
+    fg = palette.general.yellow.v65,
     bg = palette.general.yellow.v20,
   },
 }
@@ -76,7 +76,7 @@ M.command = {
     bg = palette.general.magenta.v30,
   },
   c = {
-    fg = palette.general.magenta.v70,
+    fg = palette.general.magenta.v65,
     bg = palette.general.magenta.v20,
   },
 }
@@ -92,24 +92,24 @@ M.terminal = {
     bg = palette.general.cyan.v30,
   },
   c = {
-    fg = palette.general.cyan.v70,
+    fg = palette.general.cyan.v65,
     bg = palette.general.cyan.v20,
   },
 }
 
 M.inactive = {
   a = {
-    fg = palette.general.gray.v60,
-    bg = palette.general.gray.v20,
+    fg = palette.general.gray.v50,
+    bg = palette.general.gray.v15,
     gui = "bold",
   },
   b = {
-    fg = palette.general.gray.v60,
-    bg = palette.general.gray.v20,
+    fg = palette.general.gray.v50,
+    bg = palette.general.gray.v15,
   },
   c = {
-    fg = palette.general.gray.v60,
-    bg = palette.general.gray.v20,
+    fg = palette.general.gray.v50,
+    bg = palette.general.gray.v15,
   },
 }
 

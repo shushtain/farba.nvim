@@ -90,8 +90,8 @@ function M.setup()
     SpellLocal = { link = "SpellCap" },
     SpellRare = { link = "SpellCap" },
 
-    StatusLine = { fg = general.gray.v60, bg = general.gray.v20 },
-    StatusLineNC = { fg = general.gray.v40, bg = general.gray.v15 },
+    StatusLine = { fg = general.gray.v65, bg = general.gray.v20 },
+    StatusLineNC = { fg = general.gray.v50, bg = general.gray.v15 },
     StatusLineTerm = { link = "StatusLine" },
     StatusLineTermNC = { link = "StatusLineNC" },
 
