@@ -51,8 +51,10 @@ function M.hash(profile)
 
     for _, subgroup in ipairs(subgroup_keys) do
       local coords = subgroups[subgroup]
-      table.insert(hash, coords.hue)
-      table.insert(hash, coords.sat)
+      local sat = coords.sat
+      local hue = sat == 0 and 0 or coords.hue
+      table.insert(hash, hue)
+      table.insert(hash, sat)
     end
   end
 
