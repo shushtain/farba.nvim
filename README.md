@@ -1,8 +1,8 @@
 # Farba for Neovim
 
-> one theme to have them all
-> one dark for daily driving
-> one blue for city hall
+> one theme to have them all  
+> one dark for daily driving  
+> one blue for city hall  
 > and one in light to blind them
 
 Farba is a Neovim theme plugin. It lets you customize colors the theme is built upon, and makes sure the results stay accessible by calculating HEX values from Cubehelix coordinates.

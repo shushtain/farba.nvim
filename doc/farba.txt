@@ -82,7 +82,7 @@ Each group has 7 subgroups which are basically `base16` bases with `gray`
 replacing both `black` and `white`. And each subgroup is set by specifying:
 
     `hue`
-        Hue in range `[0:360]` with standard representation
+        Hue in range `[0:360]` with standard HSL-like representation
         where red at `0`, green at `120`, and blue at `240`.
 
     `sat`
