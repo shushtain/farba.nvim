@@ -16,6 +16,7 @@ Setup is optional but recommended. The primary purpose of the standard theme is 
 ```lua
 ---@type Farba.Config
 require("farba").setup({
+  cache = false,
   mode = nil, -- "light"|"dark" or let 'vim.o.background' decide
   transparency = {
     normal = false, -- `true` to hide background
@@ -53,6 +54,10 @@ vim.tbl_get(vim.g, "farba", "palette", "general", "gray", "v10") or "#f00f00"
 This way you won't be troubled if something happens to your `farba`, or if you simply decide to switch to another theme plugin completely.
 
 `vim.g.farba` stores the following:
+
+### cache
+
+Whether caching is enabled.
 
 ### mode
 

@@ -10,10 +10,12 @@ function M.generate()
   local theme = vim.deepcopy(profile)
   local hash = require("farba.cache").hash(profile)
 
-  local cache = require("farba.cache").decode(hash)
-  if cache then
-    theme.palette = cache
-    return theme
+  if theme.cache then
+    local cache = require("farba.cache").decode(hash)
+    if cache then
+      theme.palette = cache
+      return theme
+    end
   end
 
   for group, subgroups in pairs(profile.palette) do
@@ -24,7 +26,10 @@ function M.generate()
     end
   end
 
-  require("farba.cache").encode(hash, theme.palette)
+  if theme.cache then
+    require("farba.cache").encode(hash, theme.palette)
+  end
+
   return theme
 end
 

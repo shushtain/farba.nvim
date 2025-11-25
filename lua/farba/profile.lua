@@ -2,6 +2,7 @@ local M = {}
 
 ---@type Farba.Config
 M.model = {
+  cache = false,
   mode = vim.NIL,
   transparency = { normal = false, float = false },
   palette = {
@@ -50,6 +51,7 @@ function M.normalize(config)
   local profile = vim.deepcopy(M.model, true)
   profile = vim.tbl_deep_extend("force", profile, config)
 
+  profile.cache = profile.cache or false
   -- define mode if not enforced
   if profile.mode == vim.NIL then
     profile.mode = vim.o.background

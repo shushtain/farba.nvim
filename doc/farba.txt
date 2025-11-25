@@ -16,6 +16,7 @@ Here are the defaults:
 >lua
     ---@type Farba.Config
     require("farba").setup({
+      cache = false,
       mode = nil,
       transparency = { normal = false, float = false },
       palette = {
@@ -38,6 +39,11 @@ Here are the defaults:
     }
 <
 
+                                                           *farba-setup#cache*
+cache ~
+
+If `true`, store HEX colors in `vim.fn.stdpath("cache") .. "/farba.nvim/"`.
+Default is `false`
 
                                                             *farba-setup#mode*
 mode ~
@@ -96,6 +102,9 @@ replacing both `black` and `white`. And each subgroup is set by specifying:
 GLOBALS                                                        *farba-globals*
 
 Another useful feature of the plugin is `vim.g.farba` with fields:
+
+    `cache`
+        Whether caching is enabled.
 
     `mode`
         At this point the mode is defined. There is no `nil` state.

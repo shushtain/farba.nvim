@@ -15,13 +15,9 @@ function M.colorscheme()
     )
     return nil
   end
-  vim.g.farba = theme
 
+  vim.g.farba = theme
   vim.o.termguicolors = true
-  -- ---@diagnostic disable-next-line: unnecessary-if
-  -- if vim.g.colors_name then
-  --   vim.cmd("hi clear")
-  -- end
 
   require("farba.core").setup()
   require("farba.plugins").setup()

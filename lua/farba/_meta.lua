@@ -1,14 +1,17 @@
 ---@class Farba.Config
+---@field cache? boolean If `true`, store HEX colors in `vim.fn.stdpath("cache") .. "/farba.nvim/"`. Default is `false`
 ---@field mode? Farba.Config.Mode If set, enforce the specified theme variant. Otherwise, rely on `'background'`. Default is `nil`
 ---@field transparency? Farba.Config.Transparency
 ---@field palette? Farba.Config.Palette
 
 ---@class Farba.Profile
+---@field cache boolean
 ---@field mode Farba.Profile.Mode
 ---@field transparency Farba.Profile.Transparency
 ---@field palette Farba.Profile.Palette
 
 ---@class Farba.Theme
+---@field cache boolean
 ---@field mode Farba.Theme.Mode
 ---@field transparency Farba.Theme.Transparency
 ---@field palette Farba.Theme.Palette
