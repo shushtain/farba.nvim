@@ -15,7 +15,7 @@ function M.setup()
     NormalNC = { link = "Normal" },
     WinSeparator = { fg = general.gray.v05 },
 
-    Cursor = { fg = general.gray.v10, bg = general.gray.v80 },
+    Cursor = { reverse = true },
     TermCursor = { link = "Cursor" },
     CursorIM = { link = "Cursor" },
     lCursor = { link = "Cursor" },
