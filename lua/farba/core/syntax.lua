@@ -198,7 +198,7 @@ function M.setup()
     ["@lsp.mod.deprecated"] = { strikethrough = true },
     ["@lsp.mod.mutable"] = { italic = true },
 
-    ["@lsp.typemod.keyword.unsafe"] = { fg = syntax.red.v50 },
+    -- ["@lsp.typemod.keyword.unsafe"] = { fg = syntax.red.v50 },
   }
 
   for key, value in pairs(groups) do

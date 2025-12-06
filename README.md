@@ -73,8 +73,6 @@ Same groups and subgroups. Each subgroup now stores colors instead of `hue` and 
 
 In light mode, the values (not keys) change to their opposites. Your custom element set to `vim.g.palette.general.gray.v05` will become a color with lightness 95 when `mode = "light"`.
 
-Please be mindful that `vim.g.farba` is ready AFTER the colorscheme is set. Don't use it in contexts that come before you initialize the theme. The most reliable pattern is:
-
 ## Cache
 
 `farba.nvim` caches themes to shave whopping 42% of total startup time on theme reuse! That's about 4 milliseconds, folks. The next version will be banana-flavored.
