@@ -93,8 +93,8 @@ function M.setup()
     ["@attribute.builtin"] = { fg = syntax.magenta.v70, bold = true },
     ["@property"] = { link = "@variable" },
 
-    ["@function"] = { fg = syntax.cyan.v85 },
-    ["@function.builtin"] = { fg = syntax.cyan.v85, bold = true },
+    ["@function"] = { fg = syntax.cyan.v80 },
+    ["@function.builtin"] = { fg = syntax.cyan.v80, bold = true },
     ["@function.call"] = { link = "@function" },
     ["@function.macro"] = { link = "@function" },
 
@@ -123,7 +123,7 @@ function M.setup()
     ["@keyword.directive"] = { link = "@keyword" },
     ["@keyword.directive.define"] = { link = "@keyword" },
 
-    ["@punctuation"] = { fg = syntax.gray.v60 },
+    ["@punctuation"] = { fg = syntax.gray.v50 },
     ["@punctuation.delimiter"] = { link = "@punctuation" },
     ["@punctuation.bracket"] = { link = "@punctuation" },
     ["@punctuation.special"] = { fg = syntax.magenta.v60 },
