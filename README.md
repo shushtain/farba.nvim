@@ -11,7 +11,7 @@ Farba is a Neovim theme plugin. It lets you customize colors the theme is built 
 
 ## Setup
 
-Setup is optional but recommended. The primary purpose of the standard theme is to color different groups with different colors, so it's obvious how to customize it to your needs. Here are the defaults:
+Setup is optional but recommended. The primary purpose of the standard theme is to color different groups with different colors, so it becomes obvious how to customize it to your needs. See `:h farba.txt` for details. Here are the defaults:
 
 ```lua
 ---@type Farba.Config
@@ -27,10 +27,10 @@ require("farba").setup({
       gray    = { hue = 0,   sat = 0 },
       red     = { hue = 0,   sat = 100 },
       yellow  = { hue = 30,  sat = 75 },
-      green   = { hue = 80,  sat = 50 },
-      cyan    = { hue = 120, sat = 75 },
-      blue    = { hue = 200, sat = 25 },
-      magenta = { hue = 260, sat = 35 },
+      green   = { hue = 90,  sat = 50 },
+      cyan    = { hue = 140, sat = 75 },
+      blue    = { hue = 180, sat = 50 },
+      magenta = { hue = 280, sat = 35 },
     },
     -- the following use the same structure
     -- missing fields use `general` as fallback
@@ -41,7 +41,27 @@ require("farba").setup({
 })
 ```
 
-See `:h farba.txt` for details.
+I encourage you to start by setting the general palette to your terminal colors and focus on the `syntax` group. For example, I've decided not to use standard blues at all. I find green much easier on the eyes and primarily care about the distinction between variables/properties (blue group) and functions/methods (cyan group). Thus, my own palette looks like this:
+
+```lua
+palette = {
+  general = {
+    gray    = { hue = 0,   sat = 0 },
+    red     = { hue = 0,   sat = 100 },
+    yellow  = { hue = 30,  sat = 75 },
+    green   = { hue = 80,  sat = 50 },
+    cyan    = { hue = 150, sat = 50 },
+    blue    = { hue = 200, sat = 50 },
+    magenta = { hue = 280, sat = 50 }
+  },
+  syntax = {
+    yellow  = { hue = 25,  sat = 75 },
+    cyan    = { hue = 0,   sat = 60 },
+    blue    = { hue = 80,  sat = 50 },
+    magenta = { hue = 80,  sat = 30 }
+  }
+}
+```
 
 ## Globals
 
@@ -77,7 +97,7 @@ In light mode, the values (not keys) change to their opposites. Your custom elem
 
 `farba.nvim` caches themes to shave whopping 42% of total startup time on theme reuse! That's about 4 milliseconds, folks. The next version will be banana-flavored.
 
-The cache is stored in `vim.fn.stdpath("cache") .. "/farba.nvim/"`. You may clear it by calling:
+The cache is stored in `vim.fn.stdpath("cache") .. "/farba.nvim/"`. You can clear it by calling:
 
 ```lua
 require("farba").purge()
