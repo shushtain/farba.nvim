@@ -1,4 +1,4 @@
-*farba.txt*                                                              Farba
+*farba.txt*                                            Generative color scheme
 
 Farba is a Neovim theme plugin. It lets you customize colors the theme
 is built upon, and makes sure the results stay accessible by calculating
