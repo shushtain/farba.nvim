@@ -82,7 +82,7 @@ function M.setup()
     ["@character.special"] = { link = "@string.special" },
 
     ["@boolean"] = { fg = syntax.yellow.v85 },
-    ["@number"] = { fg = syntax.yellow.v90 },
+    ["@number"] = { fg = syntax.yellow.v85 },
     ["@number.float"] = { link = "@number" },
 
     ["@type"] = { fg = syntax.green.v70 },
