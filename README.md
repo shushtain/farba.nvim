@@ -8,6 +8,7 @@
 Farba is a Neovim theme plugin. It lets you customize colors the theme is built upon, and makes sure the results stay accessible by calculating HEX values from Cubehelix coordinates.
 
 ![Example](https://github.com/shushtain/farba.nvim/blob/main/example.gif)
+![Example RGB](https://github.com/shushtain/farba.nvim/blob/main/example_rgb.png)
 
 ## Setup
 
